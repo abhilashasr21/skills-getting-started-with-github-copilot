@@ -1,0 +1,11 @@
+# Example remote state backend using Azure Storage Account.
+# Copy to backend.tf and update values or configure dynamically via environment variables in CI.
+
+tf {
+  backend "azurerm" {
+    resource_group_name  = "tfstate-rg"
+    storage_account_name = "tfstatestorageacct" # must be lowercase, globally unique
+    container_name       = "tfstate"
+    key                  = "example.terraform.tfstate"
+  }
+}
